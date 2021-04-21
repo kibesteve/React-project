@@ -2,7 +2,7 @@ import React, {useEffect,useState} from  "react"
 //import {useParams} from "react-router-dom"
 import {CircularProgress} from "@material-ui/core"
 import axios from 'axios'
-
+import TodoCard from "./TodoCard"
 //import "./styles.css"
 
 const Todos = ()=>{
@@ -17,8 +17,16 @@ const Todos = ()=>{
     },[])
     console.log(todos)
     return (
-    <>{todos ? (<h1>This is the Todos component</h1>
-    ) : < CircularProgress/>}
+    <>
+        <logo /> 
+        {
+            todos ? 
+                (
+                <div style = {{display:"flex", flexWrap:"wrap"}} >
+                    {todos.slice(0,10).map(todo=><TodoCard todo ={todo}/>)}
+                </div>
+                ) : < CircularProgress/>
+        }
     </>
     )
 }
