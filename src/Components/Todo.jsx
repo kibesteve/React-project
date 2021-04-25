@@ -10,7 +10,7 @@ const Todo = ()=>{
 
     const [todoDetails, setTodoDetails] = useState()
 
-    useEffect(() =>{
+    useEffect((id) =>{
         axios.get('https://jsonplaceholder.typicode.com/todos/'+id)
         .then((res)=>{
             const responseTodo = res.data
